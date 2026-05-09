@@ -5,22 +5,12 @@ heapsifter
 
 A cli application for treating text file lists as heaps.
 """
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
-from __future__ import absolute_import
-from builtins import input
-from builtins import open
-from builtins import range
-from builtins import int
-from builtins import object
-from future import standard_library
-standard_library.install_aliases()
 import random
 import heapq
 import functools
 
 import click
+
 
 def is_heap(passed_list):
     """Returns true if the passed list is a heap."""
@@ -58,7 +48,7 @@ def read_todos(todo_file):
     """Opens a file as a list of TODO objects."""
     try:
         with open(todo_file) as my_file:
-            todos = [TODO(todo.strip()) for todo in  my_file if todo != '\n']
+            todos = [TODO(todo.strip()) for todo in my_file if todo != '\n']
         return todos
     except FileNotFoundError:
         return []
@@ -148,8 +138,6 @@ def pop(todo_file):
         heapq.heappop(todos)
     elif choice == 'r':
         heapq.heapreplace(todos, todos[0])
-        # item = heapq.heappop(todos)
-        # heapq.heappush(todos, item)
     write_todos(todos, todo_file)
 
 
@@ -252,9 +240,6 @@ def triage(source, out):
         heapq._siftup(src, index)
     write_todos(src, source)
     write_todos(new, out)
-
-
-
 
 
 if __name__ == '__main__':

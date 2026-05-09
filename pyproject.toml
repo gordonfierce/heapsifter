@@ -1,0 +1,20 @@
+[project]
+name = "heapsifter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Gordon Fierce", email = "gordon.fierce@gmail.com" }
+]
+requires-python = ">=3.12.11"
+dependencies = ["click"]
+
+[project.scripts]
+heapsifter = "heapsifter:cli"
+
+[build-system]
+requires = ["uv_build>=0.8.19,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pytest", "hypothesis"]
